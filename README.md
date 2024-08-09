@@ -27,4 +27,19 @@
 
 ## How To Run
 
-    
+    1. Clone the Repository:
+        Open VS Code.
+        Press Ctrl+Shift+P and type Git: Clone.
+        Paste the repository URL (https://github.com/lorr010/housing_price_predictor) and choose a folder to clone the repository.
+
+    2. Open the Project:
+        Once cloned, VS Code will ask to open the folder. Click "Open".
+
+    3. Install Dependencies:
+        Open a terminal in VS Code (`Ctrl+``).
+        Navigate to the project folder if not already there.
+        Run the command pip install -r requirements.txt to install the necessary dependencies.
+
+    4. Run the Code:
+        Locate the main script (e.g., main.py).
+        Run it using the terminal with python main.py or by clicking the run button in VS Code.
