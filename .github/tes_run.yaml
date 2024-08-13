@@ -1,0 +1,31 @@
+# name your github worflow
+
+name: Run Python Tests
+
+# define your github workflow trigger and run frequency
+
+on: 
+  push: 
+    branches:
+      main
+
+# declaring your jobs and steps
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    #checkout our repo
+    - name: checkout repository
+      uses: actions/checkout@v3
+    #install python
+    - name: install python
+      uses: action/setup-python@v4
+      with:
+        python-version: '3.11'
+    #instal py dependencies using poetry
+    - name: install py dependencies
+      uses: action/
+    #run pytest cases
+    - name: run pytest
