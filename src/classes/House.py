@@ -1,10 +1,64 @@
 class House():
     # initialize house object which should all these properties:
 
-    def __init__():
-        pass
+    def __init__(self, id, neighborhood, house_style, overall_condition, year_built,
+                 roof_type, roof_material, foundation_material, heating, central_air,
+                 electrical, fireplace_num, garage_area, date_sold):
+        self.id = id
+        self.neighborhood = neighborhood
+        self.house_style = house_style
+        self.overall_condition = overall_condition
+        self.year_built = year_built
+        self.roof_type = roof_type
+        self.roof_material = roof_material
+        self.foundation_material = foundation_material
+        self.heating = heating
+        self.central_air = central_air
+        self.electrical = electrical
+        self.fireplace_num = fireplace_num
+        self.garage_area = garage_area
+        self.date_sold = date_sold
 
-    
+    def toString(self):
+        print(f"House(id={self.id}, neighborhood={self.neighborhood}, "
+                f"house_style={self.house_style}, overall_condition={self.overall_condition})")
+
+
+class CRUD:
+    def __init__(self):
+        self.houses = {}
+
+    def create_house(self, house: House):
+        self.houses[house.id] = house
+
+    def read_house(self, id):
+        return self.houses.get(id, None)
+
+    def update_house(self, id, **kwargs):
+        house = self.houses.get(id)
+        if house:
+            for key, value in kwargs.items():
+                if hasattr(house, key):
+                    setattr(house, key, value)
+            return house
+        return None
+
+    def delete_house(self, id):
+        if id in self.houses:
+            del self.houses[id]
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 # TASK 4
     def update_house(self, updated_data):
         # update the house by id
@@ -29,3 +83,4 @@ class House():
         # example: filters = {"id": 1, "neighborhood": "gilbert"}
         # this should return the house with id 1 in the neighborhood gilbert
         pass
+"""

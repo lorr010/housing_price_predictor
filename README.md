@@ -84,7 +84,7 @@
 
 ## Task 3: Object-Oriented Programming  
 
-    - Design and implement classes representing the dataset. Include methods to p-erform CRUD operations.  
+    - Design and implement classes representing the dataset. Include methods to perform CRUD operations.  
 
     - Create the House class including a number of fields including id, neighborhood, house_style, overall_condition, year_built, roof_type, roof_material, foundation_material, heating, central_air, electrical, fireplace_num, garage_area, date_sold (MM/YYYY) 
 
