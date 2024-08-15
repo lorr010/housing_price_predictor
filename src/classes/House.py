@@ -1,6 +1,7 @@
 class House():
     # initialize house object which should all these properties:
 
+   
     def __init__(self, id, neighborhood, house_style, overall_condition, year_built,
                  roof_type, roof_material, foundation_material, heating, central_air,
                  electrical, fireplace_num, garage_area, date_sold):
@@ -21,12 +22,23 @@ class House():
 
     def toString(self):
         print(f"House(id={self.id}, neighborhood={self.neighborhood}, "
-                f"house_style={self.house_style}, overall_condition={self.overall_condition})")
+                f"house_style={self.house_style}, year_built={self.year_built})")
 
 
-class CRUD:
+class CRUD():
     def __init__(self):
         self.houses = {}
+        # houses from the dataset that contain the key value pairs: id and house object
+
+    def get_houses_by_year_and_neighborhood(self, year_built, neighborhood):
+        
+        matching_houses = []
+
+        for house in self.houses.values():
+            if house.year_built == year_built and house.neighborhood == neighborhood:
+                matching_houses.append(house)
+        
+        return matching_houses
 
     def create_house(self, house: House):
         self.houses[house.id] = house
@@ -46,6 +58,12 @@ class CRUD:
     def delete_house(self, id):
         if id in self.houses:
             del self.houses[id]
+
+    def toString(self):
+        for id, house in self.houses.items():
+            house.toString()
+        
+
 
 
 

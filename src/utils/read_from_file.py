@@ -13,7 +13,7 @@ def read_from_file(file_name: str) -> list:
         print(f"The file {file_name} was not found.")
         df = pd.DataFrame()  
 
-    data_list = df.to_dict(orient='list')
+    data_list = df.to_dict(orient='records')
     #print(data_list)
     return data_list
 
