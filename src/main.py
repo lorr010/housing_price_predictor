@@ -39,7 +39,13 @@ def main():
 
     # call the methods on the house object
     #1. get the houses built in 2006 in the neighborhood Gilbert
-    houses_to_update = house_dict.get_houses_by_year_and_neighborhood(2006, "Gilbert")
+
+    filters = {
+        "year_built": 2006, 
+        "neighborhood": "Gilbert"
+        }
+    
+    houses_to_update = house_dict.get_houses_by_filters(filters)
 
     print(f"HOUSES THAT ARE IN GILBERT AND BUILT IN 2006:")
     for house in houses_to_update:
@@ -49,17 +55,17 @@ def main():
     #2. update those houses to have a new neighborhood as "Disneyland"
     print(f"UPDATING NEIGHBORHOOD GILBERT TO DISNEYLAND")
     for house in houses_to_update:
-        house_dict.update_house(house.id, neighborhood="Disneyland")
+        house_dict.update_house_by_id(house.id, neighborhood="Disneyland")
         house.toString()
     print(f"NEIGHBORHOOD UPDATED")
 
     #3. delete those houses
     for house in houses_to_update:
         print(f"DELETING HOUSE {house.id} FROM LIST")
-        house_dict.delete_house(house.id)
+        house_dict.delete_house_by_id(house.id)
     print(f"ALL DISNEYLAND HOUSES DELETED FROM DICTIONARY")
     #house_dict.toString()
-    print(f"UPDATED DICTIONARY")
+    print(f"DICTIONARY UPDATED")
 
     # write the updated data to the excel file
     new_file = "housing_price_predictor\\dataset\\update.xlsx"

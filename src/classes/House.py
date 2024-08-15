@@ -28,17 +28,45 @@ class House():
 class CRUD():
     def __init__(self):
         self.houses = {}
-        # houses from the dataset that contain the key value pairs: id and house object
+    # houses from the dataset that contain the key value pairs: id and house object
 
-    def get_houses_by_year_and_neighborhood(self, year_built, neighborhood):
+    def update_house_by_id(self, id, **kwargs):
+            house = self.houses.get(id)
+            if house:
+                for key, value in kwargs.items():
+                    if hasattr(house, key):
+                        setattr(house, key, value)
+                return house
+            return None
+    
+    def get_houses_by_filters(self, filters: dict) -> list:
         
         matching_houses = []
-
         for house in self.houses.values():
-            if house.year_built == year_built and house.neighborhood == neighborhood:
+        # Assume all filters match initially
+            match = True
+            for key, value in filters.items():
+                # Check if the house has the attribute and if it matches the filter
+                if hasattr(house, key):
+                    if getattr(house, key) != value:
+                        match = False
+                        break
+                else:
+                    match = False
+                    break
+            # If all filters match, add the house to the result list
+            if match:
                 matching_houses.append(house)
-        
+    
         return matching_houses
+        
+        # for house in self.houses.values():
+        #     for key, value in filters.items():
+        #         if hasattr(house, key):
+        #             if house:
+        #                 matching_houses.append(house)
+            
+        # return matching_houses
 
     def create_house(self, house: House):
         self.houses[house.id] = house
@@ -46,16 +74,9 @@ class CRUD():
     def read_house(self, id):
         return self.houses.get(id, None)
 
-    def update_house(self, id, **kwargs):
-        house = self.houses.get(id)
-        if house:
-            for key, value in kwargs.items():
-                if hasattr(house, key):
-                    setattr(house, key, value)
-            return house
-        return None
+    
 
-    def delete_house(self, id):
+    def delete_house_by_id(self, id):
         if id in self.houses:
             del self.houses[id]
 
