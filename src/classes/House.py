@@ -22,7 +22,7 @@ class House():
 
     def toString(self):
         print(f"House(id={self.id}, neighborhood={self.neighborhood}, "
-                f"house_style={self.house_style}, year_built={self.year_built})")
+                f"year_built={self.year_built})")
 
 
 class CRUD():

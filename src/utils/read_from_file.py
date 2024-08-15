@@ -8,9 +8,9 @@ def read_from_file(file_name: str) -> list:
     
     try:
         df = pd.read_excel(file_name)
-        print(f"The file {file_name} was found.")
+        print(f"The file was found.")
     except FileNotFoundError:
-        print(f"The file {file_name} was not found.")
+        print(f"The file was not found.")
         df = pd.DataFrame()  
 
     data_list = df.to_dict(orient='records')
