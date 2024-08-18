@@ -14,7 +14,6 @@ def read_from_file(file_name: str) -> list:
         df = pd.DataFrame()  
 
     data_list = df.to_dict(orient='records')
-    #print(data_list)
     return data_list
 
 

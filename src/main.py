@@ -32,7 +32,7 @@ def main():
             
         )
         house_dict.create_house(house)
-    
+        
     #house_dict.toString()
     print(f"HOUSES CREATED AND ADDED TO DICTIONARY")
         

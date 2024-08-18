@@ -21,10 +21,13 @@ class House():
         self.date_sold = date_sold
 
     def toString(self):
-        print(f"House(id={self.id}, neighborhood={self.neighborhood}, "
-                f"year_built={self.year_built})")
+        s = f"House(id={self.id}, neighborhood={self.neighborhood}, year_built={self.year_built})"
+        print(s)
+        return s
 
 
+
+s = "success"
 class CRUD():
     def __init__(self):
         self.houses = {}
@@ -59,26 +62,19 @@ class CRUD():
                 matching_houses.append(house)
     
         return matching_houses
-        
-        # for house in self.houses.values():
-        #     for key, value in filters.items():
-        #         if hasattr(house, key):
-        #             if house:
-        #                 matching_houses.append(house)
-            
-        # return matching_houses
+    
 
     def create_house(self, house: House):
         self.houses[house.id] = house
+        return house.id
 
-    def read_house(self, id):
-        return self.houses.get(id, None)
-
-    
+    def read_house_id(self, house, id):
+        return self.houses.get(house.id, id)
 
     def delete_house_by_id(self, id):
         if id in self.houses:
             del self.houses[id]
+            return id
 
     def toString(self):
         for id, house in self.houses.items():
