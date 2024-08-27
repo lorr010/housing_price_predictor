@@ -10,7 +10,7 @@ def main():
 
     # read the data from excel and create house object, 
     # iterate through the file and add to dictionary
-    file_name = "housing_price_predictor\dataset\data.xlsx"
+    file_name = "housing_price_predictor\\dataset\\data.xlsx"
     house_data = read_from_file(file_name)
     print(f'READING DATA FROM FILE...')
     for attr in house_data:
